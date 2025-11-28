@@ -30,7 +30,7 @@ class HoneyPotSubscriberTest extends TestCase
             $fieldName,
             $logger,
             $requestStack,            
-            'Bot detected' 
+            // 'Bot detected' 
         );
 
         // 4. Préparer les données d'entrée (avant l'événement)
