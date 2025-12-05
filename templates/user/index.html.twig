@@ -1,20 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Hello UserController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<h1 class="text-2xl text-center font-bold pt-5 mb-5">Users</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<div class="users grid grid-cols-4 grid-rows-2 gap-2.5">
+		{% for user in users.results %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/laragon/www/project-docker/src/Controller/UserController.php</code></li>
-        <li>Your template at <code>C:/laragon/www/project-docker/templates/user/index.html.twig</code></li>
-    </ul>
-</div>
+			<div class="user bg-white p-4 rounded shadow border border-gray-200 flex flex-col justify-between">
+
+				<div class="top flex justify-between items-start mb-4">
+					<div>
+						<h2 class="font-bold text-lg leading-tight">
+							{{ user.name.title }}
+							{{ user.name.last }}
+							{{ user.name.first }}
+						</h2>
+
+						<p class="text-gray-500 text-sm mt-1">
+							<i class="ri-mail-line align-middle"></i>&nbsp;{{ user.email}}
+						</p>
+						<p class="text-gray-500 text-sm">
+							<i class="ri-smartphone-line align-middle"></i>&nbsp;{{ user.phone }}
+						</p>
+					</div>
+
+					<div>
+						<img src="{{ user.picture.large }}" alt="Avatar" class="w-16 h-16 rounded-full object-cover">
+					</div>
+				</div>
+
+				<div class="details border-t border-gray-100 pt-2 mt-auto flex justify-between items-end">
+					<div class="text-sm">
+						<i class="ri-map-pin-2-line text-gray-400"></i>
+						<span class="font-medium">{{ user.location.street.number }}
+							{{ user.location.street.name }}</span>
+						<br>
+						<p>{{ user.location.postcode }}
+							{{ user.location.city }}</p>
+						<p class="uppercase text-xs text-gray-400 font-semibold">{{ user.location.country }}</p>
+					</div>
+
+					<div>
+						<p class="plus text-xl text-blue-600 hover:text-blue-800 cursor-pointer">
+							<a href="#">
+								<i class="ri-folder-add-line"></i>
+							</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}
