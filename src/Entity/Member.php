@@ -13,8 +13,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Table(name: '`member`')]
 #[ApiResource(
     operations: [
-        new Get(normalizationContext: ['groups' => 'membre:item']),
-        new GetCollection(normalizationContext: ['groups' => 'membre:list'])
+        new Get(normalizationContext: ['groups' => 'member:item']),
+        new GetCollection(normalizationContext: ['groups' => 'member:list'])
     ]
 )]
 class Member
@@ -22,51 +22,51 @@ class Member
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 20)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $title = null;
 
     #[ORM\Column(length: 100)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $last = null;
 
     #[ORM\Column(length: 50)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $first = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $email = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $phone = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $picture = null;
 
     #[ORM\Column(length: 20)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $streetnumber = null;
 
     #[ORM\Column(length: 50)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $postcode = null;
 
     #[ORM\Column(length: 100)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $city = null;
 
     #[ORM\Column(length: 50)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $country = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['membre:list', 'membre:item'])]
+    #[Groups(['member:list', 'member:item'])]
     private ?string $Streetname = null;
 
     public function getId(): ?int
