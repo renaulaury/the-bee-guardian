@@ -2,49 +2,71 @@
 
 namespace App\Entity;
 
-use App\Repository\MemberRepository;
+use ApiPlatform\Metadata\Get;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\MemberRepository;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: MemberRepository::class)]
 #[ORM\Table(name: '`member`')]
+#[ApiResource(
+    operations: [
+        new Get(normalizationContext: ['groups' => 'membre:item']),
+        new GetCollection(normalizationContext: ['groups' => 'membre:list'])
+    ]
+)]
 class Member
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 20)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $title = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $last = null;
 
     #[ORM\Column(length: 50)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $first = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $email = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $phone = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $picture = null;
 
     #[ORM\Column(length: 20)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $streetnumber = null;
 
     #[ORM\Column(length: 50)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $postcode = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $city = null;
 
     #[ORM\Column(length: 50)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $country = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['membre:list', 'membre:item'])]
     private ?string $Streetname = null;
 
     public function getId(): ?int
