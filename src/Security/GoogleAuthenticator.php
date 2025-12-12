@@ -77,6 +77,8 @@ class GoogleAuthenticator extends OAuth2Authenticator implements AuthenticationE
      */
     public function onAuthenticationSuccess(Request $request, \Symfony\Component\Security\Core\Authentication\Token\TokenInterface $token, string $firewallName): ?Response
     {
+        // dd('VICTOIRE ! Authentification réussie. User: ' . $token->getUser()->getUserIdentifier());
+
         // Redirige l'utilisateur vers la page d'accueil après connexion réussie
         $targetUrl = $this->router->generate('home'); // Assurez-vous que la route 'home' existe
         return new RedirectResponse($targetUrl);
@@ -87,6 +89,8 @@ class GoogleAuthenticator extends OAuth2Authenticator implements AuthenticationE
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
+        // dd('ÉCHEC CRITIQUE', $exception->getMessage(), $exception);
+
         // Redirige vers la page de login en cas d'échec et ajoute un message flash
         $request->getSession()->getFlashBag()->add('error', 'Échec de la connexion Google: ' . $exception->getMessage());
         $targetUrl = $this->router->generate('login'); // Assurez-vous que la route 'login' existe
