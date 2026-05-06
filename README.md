@@ -22,9 +22,9 @@ L'application est entièrement conteneurisée pour garantir la parité des envir
 1. Cloner le dépôt : `git clone https://github.com/renaulaury/the-bee-guardian.git`
 2. Configurer les variables d'environnement : `cp .env .env.local`
 3. Construire et démarrer les conteneurs : `docker-compose up -d --build`
-4. Installer les dépendances : `docker-compose exec php composer install`
+4. Installer les dépendances : `docker-compose exec server composer install`
 5. Initialiser la base de données : 
-   `docker-compose exec php bin/console doctrine:migrations:migrate --no-interaction`
+   `docker-compose exec server bin/console doctrine:migrations:migrate --no-interaction`
 
 ## 4. Qualité et Tests
 L'intégrité des composants métier est vérifiée via PHPUnit :
