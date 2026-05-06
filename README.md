@@ -3,7 +3,7 @@ Fichier README.md
 # The Bee Guardian
 
 ## 1. Présentation du projet
-Solution de monitoring et de gestion pour la protection des colonies d'abeilles. Développé avec Symfony 7, ce projet expose une architecture robuste et sécurisée pour le suivi environnemental.
+The Bee Guardian" est une application API-First robuste dédiée à la surveillance et à la gestion de flux de données. Le projet met en œuvre une architecture organisée en couches, intégrant API Platform pour l'exposition des ressources, Docker pour l'orchestration de services et une suite de tests automatisés (PHPUnit) garantissant une haute fiabilité logicielle.
 
 ## 2. Architecture Technique
 - **Backend :** PHP 8.x / Symfony 7
